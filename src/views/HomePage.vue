@@ -8,7 +8,7 @@ const { characters, fetchCharacters, firstLoad } = useCharacters()
 onMounted(async () => {
   if (firstLoad.value) {
     await fetchCharacters()
-
+    console.log(characters)
     firstLoad.value = false
   }
 })

@@ -2,12 +2,12 @@
 <!-- eslint-disable prettier/prettier -->
 <script setup>
 const props = defineProps({
-  character: {
+  Monster: {
     type: Object,
     default: () => ({
-      multiverseid: -1,
+      id: -1,
       name: 'Unknown',
-      imageUrl: 'https://via.placeholder.com/150',
+      description: 'https://via.placeholder.com/150',
     }),
   },
 })
@@ -15,17 +15,16 @@ const props = defineProps({
 
 <template>
   <RouterLink
-    v-if="props.character.multiverseid"
-    :to="`/cards/${props.character.multiverseid}`"
+    v-if="props.Monster.id"
+    :to="`${props.Monster.id}`"
     class="rounded-lg bg-white shadow-lg"
   >
-    <img
-      class="w-full rounded-t-lg object-cover"
-      :src="props.character.imageUrl"
-    />
+    <div>
+      {{ props.Monster.description }}
+    </div>
     <div class="p-4">
       <h2 class="text-1xl font-semibold text-gray-800">
-        {{ props.character.name }}
+        {{ props.Monster.name }}
       </h2>
     </div>
   </RouterLink>
