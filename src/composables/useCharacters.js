@@ -12,12 +12,12 @@ const page = ref(1)
 const useCharacters = () => {
   const fetchCharacters = async () => {
     const { data } = await api.instance.get('/monsters', {
-//
-  //    params: {
-    //    page: page.value,
-     // },
+
+    //params: {
+        //page: page.value,
+      //},
     })
-    console.log(data)
+    //console.log(data)
     characters.value.push(...data)
    // page.value++
   }

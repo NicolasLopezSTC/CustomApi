@@ -8,9 +8,11 @@ const { characters, fetchCharacters, firstLoad } = useCharacters()
 onMounted(async () => {
   if (firstLoad.value) {
     await fetchCharacters()
-    console.log(characters)
+    
     firstLoad.value = false
   }
+
+  console.log(characters.value[0].id)
 })
 </script>
 
@@ -25,8 +27,8 @@ onMounted(async () => {
   <main class="min-h-screen bg-gradient-to-r from-green-900 to-blue-700">
     <div class="container mx-auto grid grid-cols-8 gap-4 py-8">
       <BaseCard
-        v-for="character in characters"
-        :key="character._id"
+        v-for="(character, index) in characters"
+        :key="index"
         :character="character"
       />
     </div>

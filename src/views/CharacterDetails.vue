@@ -25,14 +25,10 @@ onUnmounted(() => {
       v-if="currentCharacter"
       class="flex flex-col items-center justify-center gap-6"
     >
-      <img
-        :src="currentCharacter.card.imageUrl"
-        :alt="currentCharacter.card.name"
-      />
       <h1 class="text-white-800 text-6xl font-bold">
-        Hi, I'm {{ currentCharacter.card.name }}
+        Hi, I'm {{ currentCharacter.name }}
       </h1>
-      <pre>{{ currentCharacter.card.originalText }}</pre>
+      <pre>{{ currentCharacter.description }}</pre>
     </div>
   </main>
 </template>

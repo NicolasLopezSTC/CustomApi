@@ -2,7 +2,7 @@
 <!-- eslint-disable prettier/prettier -->
 <script setup>
 const props = defineProps({
-  Monster: {
+  monster: {
     type: Object,
     default: () => ({
       id: -1,
@@ -11,20 +11,22 @@ const props = defineProps({
     }),
   },
 })
+
+
 </script>
 
 <template>
   <RouterLink
-    v-if="props.Monster.id"
-    :to="`${props.Monster.id}`"
+    v-if="$attrs.character.id"
+    :to="`/monsters/${$attrs.character.id}`"
     class="rounded-lg bg-white shadow-lg"
   >
     <div>
-      {{ props.Monster.description }}
+      {{ $attrs.character.name }}
     </div>
     <div class="p-4">
       <h2 class="text-1xl font-semibold text-gray-800">
-        {{ props.Monster.name }}
+        {{ $attrs.character.description }}
       </h2>
     </div>
   </RouterLink>
